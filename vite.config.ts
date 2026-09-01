@@ -12,7 +12,7 @@ const externalPackages = [
         "vue",
         "antdv-next",
         "wc-utils",
-        "wc-page-core",
+        "wc-core",
         "@ant-design/icons-vue",
         "dayjs"
     ]

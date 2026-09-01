@@ -16,7 +16,7 @@ import {
 } from 'antdv-next'
 import { SearchOutlined } from '@ant-design/icons-vue'
 import type { DomainMap } from 'wc-utils'
-import type { PageField, SearchField } from 'wc-page-core'
+import type { PageField, SearchField } from 'wc-core'
 
 const props = defineProps({
     searchMap: {
@@ -71,7 +71,7 @@ const props = defineProps({
     },
 })
 
-const className = computed(() => `wc-page-search-form ${props.class}`)
+const className = computed(() => `wc-search-form ${props.class}`)
 const inputSize = typeof props.size === 'string' ? props.size : props.size[0]
 const btnSize = typeof props.size === 'string' ? props.size : props.size[1]
 
@@ -136,7 +136,7 @@ const params = computed(() => {
                     rTime: [placeholderSuffix, placeholderSuffix],
                     select: `请选择${placeholderSuffix}`,
                     tree: `请选择${placeholderSuffix}`,
-                }[String(fieldType)] || `请输�?{placeholderSuffix}`
+                }[String(fieldType)] || `请输�?{placeholderSuffix}`
 
             searchParams.push({
                 name: typedSearchField.title || fieldItem.title,
@@ -152,7 +152,7 @@ const params = computed(() => {
         searchParams.push({
             ...typedSearchField,
             component: Input,
-            placeholder: `请输�?{typedSearchField.name || typedSearchField.title || ''}`,
+            placeholder: `请输�?{typedSearchField.name || typedSearchField.title || ''}`,
         })
     })
 
@@ -181,8 +181,8 @@ const reset = () => {
         :class="className"
         @finish="search"
     >
-        <div class="wc-page-search-form-content">
-            <div class="wc-page-search-form-content-input">
+        <div class="wc-search-form-content">
+            <div class="wc-search-form-content-input">
                 <a-row :gutter="formGutter">
                     <a-col v-for="item in params" :key="String(item.name)" :span="item.col">
                         <a-form-item :name="item.field" :label="widthLabel ? String(item.name) : ''">
@@ -197,8 +197,8 @@ const reset = () => {
                 </a-row>
             </div>
 
-            <div class="wc-page-search-form-content-btn">
-                <a-row :gutter="btnsGutter" justify="end" class="wc-page-search-form-btns">
+            <div class="wc-search-form-content-btn">
+                <a-row :gutter="btnsGutter" justify="end" class="wc-search-form-btns">
                     <slot name="btn-before"></slot>
 
                     <a-col v-if="btns.includes('search')">
@@ -228,14 +228,14 @@ const reset = () => {
 <style lang="less">
 @import './styles/variables.less';
 
-.wc-page-search-form {
-    .wc-page-search-form-content {
+.wc-search-form {
+    .wc-search-form-content {
         width: 100%;
         display: flex;
         padding: @gap;
         gap: @gap;
 
-        .wc-page-search-form-content-input {
+        .wc-search-form-content-input {
             width: 20px;
             flex: 1 1 auto;
 
@@ -257,7 +257,7 @@ const reset = () => {
         }
     }
 
-    .wc-page-search-form-btns {
+    .wc-search-form-btns {
         flex-wrap: nowrap;
 
         .ant-form-item {
