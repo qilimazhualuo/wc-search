@@ -136,7 +136,7 @@ const params = computed(() => {
                     rTime: [placeholderSuffix, placeholderSuffix],
                     select: `请选择${placeholderSuffix}`,
                     tree: `请选择${placeholderSuffix}`,
-                }[String(fieldType)] || `请输�?{placeholderSuffix}`
+                }[String(fieldType)] || `请输入${placeholderSuffix}`
 
             searchParams.push({
                 name: typedSearchField.title || fieldItem.title,
@@ -152,7 +152,7 @@ const params = computed(() => {
         searchParams.push({
             ...typedSearchField,
             component: Input,
-            placeholder: `请输�?{typedSearchField.name || typedSearchField.title || ''}`,
+            placeholder: `请输入${typedSearchField.name || typedSearchField.title || ''}`,
         })
     })
 
